@@ -1,15 +1,33 @@
-<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
+<script lang="ts">
+	let value = '';
+
+	function handleKeydown(e: KeyboardEvent) {
+		console.log(e);
+		let element: HTMLInputElement = e.target; //śmieszny error, nic nie robi, wymieniłem dwa errory na jeden
+		if (e.key == 'Enter') {
+			console.log('No tu będzie dodawany todo z', element.value); //NIE WIEM CZEMU NIE DZIAŁA PO PROSTU value
+			element.placeholder = 'Może więcej dozrobieniusów, co?';
+			element.value = ''; //tu to samo
+		}
+	}
+
+	$: console.log(value);
+</script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-5">
-		<h1 class="h1">Let's get cracking bones!</h1>
-		<p>Start by exploring:</p>
-		<ul>
-			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout</li>
-			<li><code class="code">/src/app.postcss</code> - app wide css</li>
-			<li>
-				<code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents
-			</li>
-		</ul>
+		<h2 class="h2">Czuj się wolny by dodać dozrobienia!</h2>
+		<label class="label">
+			Treść Twojej supermisji
+			<input
+				{value}
+				on:keydown={handleKeydown}
+				class="input"
+				type="text"
+				name="content"
+				id="content-input"
+				placeholder="Dodaj dozrobienia bracie"
+			/>
+		</label>
 	</div>
 </div>

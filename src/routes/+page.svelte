@@ -1,17 +1,20 @@
 <script lang="ts">
-	let value = '';
+	let todo_task = '';
+	let todos = {
+		
+	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		console.log(e);
+		// console.log(e, todo_task);
 		let element: HTMLInputElement = e.target; //śmieszny error, nic nie robi, wymieniłem dwa errory na jeden
 		if (e.key == 'Enter') {
-			console.log('No tu będzie dodawany todo z', element.value); //NIE WIEM CZEMU NIE DZIAŁA PO PROSTU value
+			console.log('No tu będzie dodawany todo z', todo_task); //już wiem jak naprawić, ale nadal nie wiem czemu
 			element.placeholder = 'Może więcej dozrobieniusów, co?';
-			element.value = ''; //tu to samo
+			todo_task = ''; //trzeba było nie używać skróconej formy do input:text jako {value}
 		}
 	}
 
-	$: console.log(value);
+	// $: console.log(todo_task);
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
@@ -20,7 +23,7 @@
 		<label class="label">
 			Treść Twojej supermisji
 			<input
-				{value}
+				bind:value={todo_task}
 				on:keydown={handleKeydown}
 				class="input"
 				type="text"

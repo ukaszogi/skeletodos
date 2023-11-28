@@ -9,8 +9,8 @@
     },
     {
       id: 1,
-      task: "Obsraj spodnie",
-      done: true,
+      task: "Wyczyść spodnie",
+      done: false,
       created_date: new Date()
     },
     {

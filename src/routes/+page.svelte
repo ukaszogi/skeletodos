@@ -19,7 +19,7 @@
       done: true,
       created_date: new Date()
     }
-	]
+	];
 
 	function add_todo(e: KeyboardEvent) {
 		// console.log(e, task);

@@ -12,6 +12,12 @@
       task: "Obsraj spodnie",
       done: true,
       created_date: new Date()
+    },
+    {
+      id: 2,
+      task: "Dodaj github verified gpg",
+      done: true,
+      created_date: new Date()
     }
 	]
 
